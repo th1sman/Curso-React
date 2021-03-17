@@ -9,7 +9,7 @@ function ListOfGifs({ gifs }) {
             gifs.map(({ id, title, url }) =>
                 <Gif
                     id={id}
-                    key={key}
+                    key={id}
                     title={title}
                     url={url}
                 />

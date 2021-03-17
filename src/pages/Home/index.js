@@ -9,10 +9,9 @@ function Home() {
     const [path, pushLocation] = useLocation()
     
     //Recibe el evento del submit del formulario
-    const handleSubmit = evt =>{
+    const handleSubmit = evt => {
         //Evitar que el evento se ejecute por defecto
         evt.preventDefault()
- 
 
         //Navegar a otra ruta
         pushLocation(`/search/${keyword}`)
