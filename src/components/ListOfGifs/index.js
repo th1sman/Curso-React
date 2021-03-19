@@ -16,4 +16,3 @@ export default function ListOfGifs ({gifs}) {
     }
   </div>
 }
-
