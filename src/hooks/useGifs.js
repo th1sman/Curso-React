@@ -20,7 +20,7 @@ export function useGifs({ keyword } = { keyword: null }) {
                 //guardamos la keyword en el localStorage
                 localStorage.setItem('lastKeyword', keyword)
             })
-    }, [keyword, setGifs])
+    }, [keyword, keywordToUse, setGifs])
 
     return { loading, gifs }
 }

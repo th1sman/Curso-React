@@ -1,5 +1,6 @@
+import Category from 'components/Category'
 import React, {useState} from 'react'
-import { Link, useLocation } from 'wouter'
+import { Link, useLocation } from 'wouter' // eslint-disable-next-line
 import ListOfGifs from '../../components/ListOfGifs'
 import {useGifs} from '../../hooks/useGifs'
 
@@ -8,9 +9,9 @@ const POPULAR_GIFS = ['Matrix', 'Chile', 'Colombia', 'Ecuador', 'Venezuela']
 function Home() {
 
     const [keyword, setKeyword] = useState('')
-    const [path, pushLocation] = useLocation()
+    const [path, pushLocation] = useLocation() // eslist-disable-next-line
 
-    const { loading, gifs} = useGifs()
+    const { loading, gifs} = useGifs() // eslist-disable-next-line
 
 
     const handleSubmit = evt => {
@@ -29,22 +30,22 @@ function Home() {
                 <input onChange={handleChange} type="text" value={keyword}/>
                 <button>Buscar</button>
             </form>
-
-            <h3>Ultima Busqueda</h3>    
-            <ListOfGifs gifs={gifs} />
-
-
-            <h3 className="App-title"> Los Gifs mas populares</h3>
-            <ul>
-                {POPULAR_GIFS.map((popularGif) => (
-                    <li key={popularGif}>
-                        <Link 
-                            to={`/search/${popularGif}`}>
-                        Gifs populares {popularGif}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+         <div className="App-main">
+             <div className="App-results">
+                 <h3 className="App-title">Ultima busqueda</h3>
+                 <ListOfGifs gifs={gifs} />
+             </div>
+             <div className="App-category">
+                 <Category 
+                    name="Categorias populares"
+                    options={POPULAR_GIFS}
+                    />
+                    <Category
+                        name="Mascotas"
+                        options={['Perros', 'Gatos', 'Hamster']}
+                        />
+             </div>
+         </div>
         </>
     )
 }

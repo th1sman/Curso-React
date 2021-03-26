@@ -9,13 +9,17 @@ function SearchResults( {params} ) {
     const { keyword } = params
     const { loading, gifs} = useGifs({ keyword})
 
-     console.log('-')
 
     return <>
     {loading
           ?  <Spinner />
-          :  <ListOfGifs gifs={gifs} />
-    }
+          :<> 
+            <h3 className="App-title">
+                {decodeURI(keyword)}
+            </h3>
+           <ListOfGifs gifs={gifs} />
+           </>
+    }  
         </>   
 }
 
